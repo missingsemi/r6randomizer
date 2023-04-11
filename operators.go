@@ -530,7 +530,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 			{
 				Name:        "M249",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
-				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Compensator, FlashHider, Extended},
+				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Compensator, FlashHider},
 				Grip:        []Grip{NoGrip, VerticalGrip, AngledGrip},
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
@@ -1688,7 +1688,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 			{
 				Name:        "FO-12",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
-				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor, Compensator, FlashHider, Extended},
+				Barrel:      []Barrel{NoBarrel, Extended, Suppressor},
 				Grip:        []Grip{NoGrip, VerticalGrip, AngledGrip},
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
