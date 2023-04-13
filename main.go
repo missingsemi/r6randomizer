@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/missingsemi/r6randomizer/assets"
 )
 
 func main() {
@@ -13,13 +14,15 @@ func main() {
 	})
 	r.Get("/attacker", func(w http.ResponseWriter, r *http.Request) {
 		loadout := GetRandomAttacker()
-		w.Write([]byte(loadout.String()))
+		RenderTemplate(w, loadout)
 	})
 
 	r.Get("/defender", func(w http.ResponseWriter, r *http.Request) {
 		loadout := GetRandomDefender()
-		w.Write([]byte(loadout.String()))
+		RenderTemplate(w, loadout)
 	})
+
+	r.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.FS(assets.Assets))))
 
 	http.ListenAndServe(":5000", r)
 }

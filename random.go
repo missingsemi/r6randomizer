@@ -21,33 +21,56 @@ func choose[T any](arr []T) T {
 	return arr[r]
 }
 
-const loadoutFmt string = "Operator: %s\nPrimary: %s\n* %s\n* %s\n* %s\n* %s\nSecondary: %s\n* %s\n* %s\n* %s\n* %s\nGadget: %s"
-
-type AttackerLoadout struct {
-	Operator             Attacker
-	Primary              string
-	PrimaryAttachments   Attachments
-	Secondary            string
-	SecondaryAttachments Attachments
-	Gadget               AttackerGadget
+type Loadout interface {
+	Team() string
+	Operator() string
+	OperatorIcon() string
+	Primary() string
+	PrimaryAttachments() Attachments
+	Secondary() string
+	SecondaryAttachments() Attachments
+	Gadget() string
 }
 
-func (a AttackerLoadout) String() string {
-	return fmt.Sprintf(
-		loadoutFmt,
-		AttackerNames[a.Operator],
-		a.Primary,
-		SightNames[a.PrimaryAttachments.Sight],
-		BarrelNames[a.PrimaryAttachments.Barrel],
-		GripNames[a.PrimaryAttachments.Grip],
-		UnderbarrelNames[a.PrimaryAttachments.Underbarrel],
-		a.Secondary,
-		SightNames[a.SecondaryAttachments.Sight],
-		BarrelNames[a.SecondaryAttachments.Barrel],
-		GripNames[a.SecondaryAttachments.Grip],
-		UnderbarrelNames[a.SecondaryAttachments.Underbarrel],
-		AttackerGadgetNames[a.Gadget],
-	)
+type AttackerLoadout struct {
+	operator             Attacker
+	primary              string
+	primaryAttachments   Attachments
+	secondary            string
+	secondaryAttachments Attachments
+	gadget               AttackerGadget
+}
+
+func (a AttackerLoadout) Team() string {
+	return "Attacker"
+}
+
+func (a AttackerLoadout) Operator() string {
+	return AttackerNames[a.operator]
+}
+
+func (a AttackerLoadout) OperatorIcon() string {
+	return fmt.Sprintf("/assets/attackers/%d.png", a.operator)
+}
+
+func (a AttackerLoadout) Primary() string {
+	return a.primary
+}
+
+func (a AttackerLoadout) PrimaryAttachments() Attachments {
+	return a.primaryAttachments
+}
+
+func (a AttackerLoadout) Secondary() string {
+	return a.secondary
+}
+
+func (a AttackerLoadout) SecondaryAttachments() Attachments {
+	return a.secondaryAttachments
+}
+
+func (a AttackerLoadout) Gadget() string {
+	return AttackerGadgetNames[a.gadget]
 }
 
 func GetRandomAttacker() AttackerLoadout {
@@ -57,50 +80,64 @@ func GetRandomAttacker() AttackerLoadout {
 	secondary := choose(op.Secondary)
 
 	return AttackerLoadout{
-		Operator: op.Id,
-		Primary:  primary.Name,
-		PrimaryAttachments: Attachments{
+		operator: op.Id,
+		primary:  primary.Name,
+		primaryAttachments: Attachments{
 			Sight:       choose(primary.Sight),
 			Barrel:      choose(primary.Barrel),
 			Grip:        choose(primary.Grip),
 			Underbarrel: choose(primary.Underbarrel),
 		},
-		Secondary: secondary.Name,
-		SecondaryAttachments: Attachments{
+		secondary: secondary.Name,
+		secondaryAttachments: Attachments{
 			Sight:       choose(secondary.Sight),
 			Barrel:      choose(secondary.Barrel),
 			Grip:        choose(secondary.Grip),
 			Underbarrel: choose(secondary.Underbarrel),
 		},
-		Gadget: choose(op.Gadget),
+		gadget: choose(op.Gadget),
 	}
 }
 
 type DefenderLoadout struct {
-	Operator             Defender
-	Primary              string
-	PrimaryAttachments   Attachments
-	Secondary            string
-	SecondaryAttachments Attachments
-	Gadget               DefenderGadget
+	operator             Defender
+	primary              string
+	primaryAttachments   Attachments
+	secondary            string
+	secondaryAttachments Attachments
+	gadget               DefenderGadget
 }
 
-func (a DefenderLoadout) String() string {
-	return fmt.Sprintf(
-		loadoutFmt,
-		DefenderNames[a.Operator],
-		a.Primary,
-		SightNames[a.PrimaryAttachments.Sight],
-		BarrelNames[a.PrimaryAttachments.Barrel],
-		GripNames[a.PrimaryAttachments.Grip],
-		UnderbarrelNames[a.PrimaryAttachments.Underbarrel],
-		a.Secondary,
-		SightNames[a.SecondaryAttachments.Sight],
-		BarrelNames[a.SecondaryAttachments.Barrel],
-		GripNames[a.SecondaryAttachments.Grip],
-		UnderbarrelNames[a.SecondaryAttachments.Underbarrel],
-		DefenderGadgetNames[a.Gadget],
-	)
+func (a DefenderLoadout) Team() string {
+	return "Defender"
+}
+
+func (d DefenderLoadout) Operator() string {
+	return DefenderNames[d.operator]
+}
+
+func (d DefenderLoadout) OperatorIcon() string {
+	return fmt.Sprintf("/assets/defenders/%d.png", d.operator)
+}
+
+func (d DefenderLoadout) Primary() string {
+	return d.primary
+}
+
+func (d DefenderLoadout) PrimaryAttachments() Attachments {
+	return d.primaryAttachments
+}
+
+func (d DefenderLoadout) Secondary() string {
+	return d.secondary
+}
+
+func (d DefenderLoadout) SecondaryAttachments() Attachments {
+	return d.secondaryAttachments
+}
+
+func (d DefenderLoadout) Gadget() string {
+	return DefenderGadgetNames[d.gadget]
 }
 
 func GetRandomDefender() DefenderLoadout {
@@ -110,21 +147,21 @@ func GetRandomDefender() DefenderLoadout {
 	secondary := choose(op.Secondary)
 
 	return DefenderLoadout{
-		Operator: op.Id,
-		Primary:  primary.Name,
-		PrimaryAttachments: Attachments{
+		operator: op.Id,
+		primary:  primary.Name,
+		primaryAttachments: Attachments{
 			Sight:       choose(primary.Sight),
 			Barrel:      choose(primary.Barrel),
 			Grip:        choose(primary.Grip),
 			Underbarrel: choose(primary.Underbarrel),
 		},
-		Secondary: secondary.Name,
-		SecondaryAttachments: Attachments{
+		secondary: secondary.Name,
+		secondaryAttachments: Attachments{
 			Sight:       choose(secondary.Sight),
 			Barrel:      choose(secondary.Barrel),
 			Grip:        choose(secondary.Grip),
 			Underbarrel: choose(secondary.Underbarrel),
 		},
-		Gadget: choose(op.Gadget),
+		gadget: choose(op.Gadget),
 	}
 }

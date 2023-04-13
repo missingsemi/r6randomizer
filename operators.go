@@ -150,7 +150,7 @@ var DefenderNames map[Defender]string = map[Defender]string{
 	Solis:       "Solis",
 }
 
-type Gun struct {
+type GunInfo struct {
 	Name        string        `json:"name"`
 	Sight       []Sight       `json:"sight"`
 	Barrel      []Barrel      `json:"barrel"`
@@ -160,22 +160,22 @@ type Gun struct {
 
 type AttackerInfo struct {
 	Id        Attacker
-	Primary   []Gun
-	Secondary []Gun
+	Primary   []GunInfo
+	Secondary []GunInfo
 	Gadget    []AttackerGadget
 }
 
 type DefenderInfo struct {
 	Id        Defender
-	Primary   []Gun
-	Secondary []Gun
+	Primary   []GunInfo
+	Secondary []GunInfo
 	Gadget    []DefenderGadget
 }
 
 var Attackers []AttackerInfo = []AttackerInfo{
 	{
 		Id: Sledge,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "M590A1",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -189,7 +189,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P226 MK 25",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -200,7 +200,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Thatcher,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "M590A1",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -221,18 +221,18 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P226 MK 25",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{Claymore, BreachingCharge},
+		Gadget: []AttackerGadget{Claymore, BreachCharge},
 	},
 	{
 		Id: Ash,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "G36C",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -248,7 +248,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "5.7 USG",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -260,11 +260,11 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{Claymore, BreachingCharge},
+		Gadget: []AttackerGadget{Claymore, BreachCharge},
 	},
 	{
 		Id: Thermite,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "M1014",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -278,7 +278,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "5.7 USG",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -294,7 +294,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Twitch,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "F2",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -315,7 +315,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P9",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -330,12 +330,12 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Montagne,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name: "Leroc Shield",
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P9",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -350,7 +350,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Glaz,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "OTS-03",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB},
@@ -359,7 +359,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "PMM",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -379,7 +379,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Fuze,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name: "BALLISTIC SHIELD",
 			},
@@ -398,7 +398,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "PMM",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -411,27 +411,27 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{SmokeGrenade, BreachingCharge, HardBreachDevice},
+		Gadget: []AttackerGadget{SmokeGrenade, BreachCharge, HardBreachDevice},
 	},
 	{
 		Id: Blitz,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name: "G52-TACTICAL SHIELD",
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P12",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{SmokeGrenade, BreachingCharge},
+		Gadget: []AttackerGadget{SmokeGrenade, BreachCharge},
 	},
 	{
 		Id: IQ,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "AUG A2",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
@@ -453,18 +453,18 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P12",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Buck,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "C8-SFW",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -478,7 +478,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "MK1 9mm",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -492,7 +492,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Blackbeard,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "MK17 CQB",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX},
@@ -508,7 +508,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "D-50",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -519,7 +519,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Capitao,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "PARA-308",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX},
@@ -535,7 +535,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "PRB92",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -549,7 +549,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Hibana,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "TYPE-89",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
@@ -564,7 +564,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P229",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -577,11 +577,11 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{StunGrenade, BreachingCharge},
+		Gadget: []AttackerGadget{StunGrenade, BreachCharge},
 	},
 	{
 		Id: Jackal,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "C7E",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX},
@@ -602,7 +602,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "USP40",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -618,7 +618,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Ying,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "T-95 LSW",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
@@ -632,7 +632,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "Q-929",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -643,7 +643,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Zofia,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "LMG-E",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX},
@@ -659,18 +659,18 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "RG15",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Dokkaebi,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "MK 14 EBR",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB, ThreeX},
@@ -685,7 +685,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "SMG-12",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -705,7 +705,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Lion,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "V308",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
@@ -727,7 +727,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P9",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -745,7 +745,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Finka,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "SPEAR.308",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX},
@@ -761,7 +761,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "PMM",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -781,7 +781,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Maverick,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "AR-15.50",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB, ThreeX},
@@ -797,7 +797,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "1911 TACOPS",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -808,7 +808,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Nomad,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "AK-74M",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
@@ -823,7 +823,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        ".44 MAG SEMI-AUTO",
 				Underbarrel: []Underbarrel{NoLaser, Laser},
@@ -834,11 +834,11 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{StunGrenade, BreachingCharge},
+		Gadget: []AttackerGadget{StunGrenade, BreachCharge},
 	},
 	{
 		Id: Gridlock,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "F90",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
@@ -854,7 +854,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "SUPER SHORTY",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -869,11 +869,11 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Name: "GONNE-6",
 			},
 		},
-		Gadget: []AttackerGadget{SmokeGrenade, ImpactEMP, BreachingCharge},
+		Gadget: []AttackerGadget{SmokeGrenade, ImpactEMP, BreachCharge},
 	},
 	{
 		Id: Nokk,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "FMG-9",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -886,7 +886,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "5.7 USG",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -902,7 +902,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Amaru,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "G8A1",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
@@ -917,7 +917,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "SMG-11",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -938,12 +938,12 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Kali,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name: "CSRX 300",
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "SPSMG9",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -961,11 +961,11 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Iana,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "ARX200",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -981,7 +981,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "MK1 9mm",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -992,7 +992,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Ace,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "AK-12",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -1006,18 +1006,18 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P9",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Zero,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "SC3000K",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX},
@@ -1032,7 +1032,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "5.7 USG",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1046,7 +1046,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Flores,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "AR33",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX},
@@ -1062,7 +1062,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "GSH-18",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1074,7 +1074,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Osa,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "556XI",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
@@ -1090,7 +1090,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "PMM",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1101,7 +1101,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Sens,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "POF-9",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX, AcogA, AcogB},
@@ -1117,7 +1117,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "SDP 9mm",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1131,7 +1131,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 	},
 	{
 		Id: Grim,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "552 COMMANDO",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX},
@@ -1146,18 +1146,18 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P229",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Brava,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "PARA-308",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -1173,7 +1173,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "SUPER SHORTY",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1185,14 +1185,14 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 }
 
 var Defenders []DefenderInfo = []DefenderInfo{
 	{
 		Id: Smoke,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "FMG-9",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -1205,7 +1205,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P226 MK 25",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1223,7 +1223,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Mute,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "MP5K",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1236,7 +1236,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P226 MK 25",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1254,7 +1254,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Castle,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "UMP45",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -1268,7 +1268,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "5.7 USG",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1289,7 +1289,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Pulse,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "UMP45",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -1303,7 +1303,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "5.7 USG",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1319,7 +1319,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Doc,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "SG-CQB",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1340,7 +1340,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P9",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1359,7 +1359,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Rook,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "SG-CQB",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1380,7 +1380,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P9",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1395,7 +1395,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Kapkan,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "9x19VSN",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1411,7 +1411,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "PMM",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1428,7 +1428,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Tachanka,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "9x19VSN",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX, TwoX},
@@ -1441,7 +1441,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Sight: []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, ReflexD},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "PMM",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1464,7 +1464,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Jager,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "M870",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1478,7 +1478,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P12",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1489,7 +1489,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Bandit,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "MP7",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1502,7 +1502,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P12",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1513,7 +1513,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Frost,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "SUPER 90",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1527,7 +1527,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "MK1 9mm",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1543,7 +1543,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Valkyrie,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "MPX",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1557,7 +1557,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "D-50",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1568,7 +1568,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Caviera,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "M12",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1581,7 +1581,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "LUISON",
 				Underbarrel: []Underbarrel{NoLaser, Laser},
@@ -1591,7 +1591,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Echo,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "SUPERNOVA",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1605,7 +1605,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P229",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1622,7 +1622,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Mira,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "VECTOR .45 ACP",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1636,7 +1636,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "USP40",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1652,7 +1652,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Lesion,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "T-5 SMG",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1666,7 +1666,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "Q-929",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1677,7 +1677,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Ela,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "SCORPION EVO 3 AI",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1693,7 +1693,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "RG15",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1704,7 +1704,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Vigil,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "K1A",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1719,7 +1719,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "C75 Auto",
 				Barrel:      []Barrel{NoBarrel, Suppressor},
@@ -1736,7 +1736,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Maestro,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "ALDA 5.56",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1751,7 +1751,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "Bailiff 410",
 				Underbarrel: []Underbarrel{NoLaser, Laser},
@@ -1766,7 +1766,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Alibi,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "Mx4 Storm",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1781,7 +1781,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "Bailiff 410",
 				Underbarrel: []Underbarrel{NoLaser, Laser},
@@ -1796,12 +1796,12 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Clash,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name: "CCE SHIELD",
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "SUPER SHORTY",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1823,7 +1823,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Kaid,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "AUG A3",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1839,7 +1839,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        ".44 MAG SEMI-AUTO",
 				Underbarrel: []Underbarrel{NoLaser, Laser},
@@ -1853,7 +1853,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Mozzie,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "COMMANDO 9",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1869,7 +1869,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "SDP 9mm",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1880,7 +1880,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Warden,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "M590A1",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1894,7 +1894,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P-10C",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1911,7 +1911,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Goyo,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "VECTOR .45 ACP",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -1927,7 +1927,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "P229",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1938,7 +1938,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Wamai,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "AUG A2",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1952,7 +1952,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "KERATOS .357",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -1968,7 +1968,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Oryx,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "T-5 SMG",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -1982,7 +1982,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "Bailiff 410",
 				Underbarrel: []Underbarrel{NoLaser, Laser},
@@ -1997,7 +1997,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Melusi,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "MP5",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -2011,7 +2011,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "RG15",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -2022,7 +2022,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Aruni,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "P10 RONI",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -2038,7 +2038,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "PRB92",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -2049,7 +2049,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Thunderbird,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "SPEAR.308",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -2063,7 +2063,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "BEARING 9",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -2080,7 +2080,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Thorn,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "UZK50GI",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -2094,7 +2094,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "1911 TACOPS",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -2110,7 +2110,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Azami,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "9x19VSN",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
@@ -2125,7 +2125,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "D-50",
 				Barrel:      []Barrel{NoBarrel, MuzzleBreak, Suppressor},
@@ -2136,7 +2136,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 	},
 	{
 		Id: Solis,
-		Primary: []Gun{
+		Primary: []GunInfo{
 			{
 				Name:        "P90",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC, OneFiveX},
@@ -2149,7 +2149,7 @@ var Defenders []DefenderInfo = []DefenderInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Secondary: []Gun{
+		Secondary: []GunInfo{
 			{
 				Name:        "SMG-11",
 				Sight:       []Sight{NoSight, RedDotA, RedDotB, RedDotC, HoloA, HoloB, HoloC, HoloD, ReflexA, ReflexB, ReflexC},
