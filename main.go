@@ -14,7 +14,7 @@ var (
 )
 
 func init() {
-	flag.UintVar(&port, "port", 80, "Port to host the website on")
+	flag.UintVar(&port, "port", 8080, "Port to host the website on")
 	flag.Parse()
 }
 
