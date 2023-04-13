@@ -1,11 +1,22 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/missingsemi/r6randomizer/assets"
 )
+
+var (
+	port uint
+)
+
+func init() {
+	flag.UintVar(&port, "port", 80, "Port to host the website on")
+	flag.Parse()
+}
 
 func main() {
 	r := chi.NewRouter()
@@ -24,5 +35,5 @@ func main() {
 
 	r.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.FS(assets.Assets))))
 
-	http.ListenAndServe(":5000", r)
+	http.ListenAndServe(fmt.Sprintf(":%v", port), r)
 }
