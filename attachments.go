@@ -2,8 +2,12 @@ package main
 
 type Underbarrel int
 
+func (u Underbarrel) String() string {
+	return UnderbarrelNames[u]
+}
+
 const (
-	NoLaser = Underbarrel(iota)
+	NoLaser = Underbarrel(iota) + 1
 	Laser
 )
 
@@ -14,8 +18,12 @@ var UnderbarrelNames map[Underbarrel]string = map[Underbarrel]string{
 
 type Barrel int
 
+func (b Barrel) String() string {
+	return BarrelNames[b]
+}
+
 const (
-	NoBarrel = Barrel(iota)
+	NoBarrel = Barrel(iota) + 1
 	FlashHider
 	Compensator
 	MuzzleBreak
@@ -34,8 +42,12 @@ var BarrelNames map[Barrel]string = map[Barrel]string{
 
 type Grip int
 
+func (g Grip) String() string {
+	return GripNames[g]
+}
+
 const (
-	NoGrip = Grip(iota)
+	NoGrip = Grip(iota) + 1
 	VerticalGrip
 	AngledGrip
 )
@@ -48,8 +60,12 @@ var GripNames map[Grip]string = map[Grip]string{
 
 type Sight int
 
+func (s Sight) String() string {
+	return SightNames[s]
+}
+
 const (
-	NoSight = Sight(iota)
+	NoSight = Sight(iota) + 1
 	ReflexA
 	ReflexB
 	ReflexC

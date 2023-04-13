@@ -228,7 +228,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{Claymore, BreachingCharge},
+		Gadget: []AttackerGadget{Claymore, BreachCharge},
 	},
 	{
 		Id: Ash,
@@ -260,7 +260,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{Claymore, BreachingCharge},
+		Gadget: []AttackerGadget{Claymore, BreachCharge},
 	},
 	{
 		Id: Thermite,
@@ -411,7 +411,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{SmokeGrenade, BreachingCharge, HardBreachDevice},
+		Gadget: []AttackerGadget{SmokeGrenade, BreachCharge, HardBreachDevice},
 	},
 	{
 		Id: Blitz,
@@ -427,7 +427,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{SmokeGrenade, BreachingCharge},
+		Gadget: []AttackerGadget{SmokeGrenade, BreachCharge},
 	},
 	{
 		Id: IQ,
@@ -460,7 +460,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Buck,
@@ -577,7 +577,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{StunGrenade, BreachingCharge},
+		Gadget: []AttackerGadget{StunGrenade, BreachCharge},
 	},
 	{
 		Id: Jackal,
@@ -666,7 +666,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Dokkaebi,
@@ -834,7 +834,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{StunGrenade, BreachingCharge},
+		Gadget: []AttackerGadget{StunGrenade, BreachCharge},
 	},
 	{
 		Id: Gridlock,
@@ -869,7 +869,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Name: "GONNE-6",
 			},
 		},
-		Gadget: []AttackerGadget{SmokeGrenade, ImpactEMP, BreachingCharge},
+		Gadget: []AttackerGadget{SmokeGrenade, ImpactEMP, BreachCharge},
 	},
 	{
 		Id: Nokk,
@@ -961,7 +961,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Iana,
@@ -1013,7 +1013,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Zero,
@@ -1153,7 +1153,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 	{
 		Id: Brava,
@@ -1185,7 +1185,7 @@ var Attackers []AttackerInfo = []AttackerInfo{
 				Underbarrel: []Underbarrel{NoLaser, Laser},
 			},
 		},
-		Gadget: []AttackerGadget{BreachingCharge, Claymore},
+		Gadget: []AttackerGadget{BreachCharge, Claymore},
 	},
 }
 

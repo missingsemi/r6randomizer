@@ -7,7 +7,7 @@ const (
 	FragGrenade
 	SmokeGrenade
 	ImpactEMP
-	BreachingCharge
+	BreachCharge
 	HardBreachDevice
 	Claymore
 )
@@ -17,7 +17,7 @@ var AttackerGadgetNames map[AttackerGadget]string = map[AttackerGadget]string{
 	FragGrenade:      "Frag Grenade",
 	SmokeGrenade:     "Smoke Grenade",
 	ImpactEMP:        "Impact EMP",
-	BreachingCharge:  "Breaching Charge",
+	BreachCharge:     "Breach Charge",
 	HardBreachDevice: "Hard Breach Device",
 	Claymore:         "Claymore",
 }
